@@ -9,14 +9,20 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import hr.dtakac.factorynews.database.ArticleDao
 import hr.dtakac.factorynews.database.FactoryNewsDatabase
+import hr.dtakac.factorynews.database.UpdateTimestampDao
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object DatabaseModule {
     @Provides
     fun provideArticleDao(database: FactoryNewsDatabase): ArticleDao {
         return database.articleDao()
+    }
+
+    @Provides
+    fun provideUpdateTimestampDao(database: FactoryNewsDatabase): UpdateTimestampDao {
+        return database.updateTimestampDao()
     }
 
     @Provides

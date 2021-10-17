@@ -5,12 +5,11 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Article(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val url: String,
     val author: String,
     val title: String,
     val description: String,
-    val url: String,
     val imageUrl: String,
     val publishedAt: String?
 )

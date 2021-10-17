@@ -12,8 +12,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 object ApiModule {
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService {
