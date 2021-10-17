@@ -7,9 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import hr.dtakac.factorynews.database.ArticleDao
+import hr.dtakac.factorynews.database.dao.ArticleDao
 import hr.dtakac.factorynews.database.FactoryNewsDatabase
-import hr.dtakac.factorynews.database.UpdateTimestampDao
+import hr.dtakac.factorynews.database.dao.UpdateTimestampDao
 import javax.inject.Singleton
 
 @Module

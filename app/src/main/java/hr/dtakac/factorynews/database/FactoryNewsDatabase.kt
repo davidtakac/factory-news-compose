@@ -2,6 +2,8 @@ package hr.dtakac.factorynews.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import hr.dtakac.factorynews.database.dao.ArticleDao
+import hr.dtakac.factorynews.database.dao.UpdateTimestampDao
 import hr.dtakac.factorynews.model.database.Article
 import hr.dtakac.factorynews.model.database.UpdateTimestamp
 

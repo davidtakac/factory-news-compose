@@ -1,4 +1,4 @@
-package hr.dtakac.factorynews.database
+package hr.dtakac.factorynews.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

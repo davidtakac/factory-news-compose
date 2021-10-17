@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("/articles")
+    @GET("articles")
     suspend fun getArticles(
         @Query("source") source: String,
         @Query("sortBy") sortBy: String,

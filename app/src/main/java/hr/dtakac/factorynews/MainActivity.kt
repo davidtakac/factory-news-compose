@@ -9,6 +9,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import dagger.hilt.android.AndroidEntryPoint
+import hr.dtakac.factorynews.model.ui.ArticleCell
 import hr.dtakac.factorynews.viewmodel.ArticleListViewModel
 
 @AndroidEntryPoint
@@ -25,9 +26,16 @@ class MainActivity : ComponentActivity() {
     @Preview
     @Composable
     fun Screen() {
+        Articles(articleCells = viewModel.articleCells)
+    }
+
+    @Composable
+    fun Articles(articleCells: List<ArticleCell>) {
         LazyColumn {
-            items(1000) { index ->
-                Text("item $index")
+            articleCells.forEach {
+                item {
+                    Text(text = it.title)
+                }
             }
         }
     }

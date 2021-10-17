@@ -3,9 +3,9 @@ package hr.dtakac.factorynews.repository
 import hr.dtakac.factorynews.API_KEY
 import hr.dtakac.factorynews.STALE_DATA_THRESHOLD
 import hr.dtakac.factorynews.api.ApiService
-import hr.dtakac.factorynews.coroutines.DispatcherProvider
-import hr.dtakac.factorynews.database.ArticleDao
-import hr.dtakac.factorynews.database.UpdateTimestampDao
+import hr.dtakac.factorynews.dispatcher.DispatcherProvider
+import hr.dtakac.factorynews.database.dao.ArticleDao
+import hr.dtakac.factorynews.database.dao.UpdateTimestampDao
 import hr.dtakac.factorynews.model.database.Article
 import hr.dtakac.factorynews.model.repository.ArticleModel
 import hr.dtakac.factorynews.model.repository.Error
@@ -56,7 +56,7 @@ class DefaultArticleRepository @Inject constructor(
                 }
         }
         articleDao.insertOrReplaceAll(articleEntities)
-        updateTimestampDao.update(ZonedDateTime.now())
+        updateTimestampDao.insertOrUpdate(ZonedDateTime.now())
     }
 
     private suspend fun isCachedDataStale(): Boolean {
@@ -64,7 +64,7 @@ class DefaultArticleRepository @Inject constructor(
             updateTimestampDao.get()
         }
         return when (lastUpdate) {
-            null -> false
+            null -> true
             else -> {
                 ChronoUnit.MINUTES.between(
                     lastUpdate, ZonedDateTime.now()

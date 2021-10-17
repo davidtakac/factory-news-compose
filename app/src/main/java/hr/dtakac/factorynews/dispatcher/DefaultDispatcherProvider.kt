@@ -1,4 +1,4 @@
-package hr.dtakac.factorynews.coroutines
+package hr.dtakac.factorynews.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

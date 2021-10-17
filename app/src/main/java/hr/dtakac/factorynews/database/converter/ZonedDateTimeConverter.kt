@@ -1,28 +1,23 @@
-package hr.dtakac.factorynews.database
+package hr.dtakac.factorynews.database.converter
 
 import androidx.room.TypeConverter
 import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 object ZonedDateTimeConverter {
+    private val formatter = DateTimeFormatter.ISO_DATE_TIME
+
     @JvmStatic
     @TypeConverter
     fun fromTimestamp(timestamp: String?): ZonedDateTime? {
         return timestamp?.let {
-            try {
-                ZonedDateTime.parse(it)
-            } catch (e: Exception) {
-                null
-            }
+            ZonedDateTime.parse(it, formatter)
         }
     }
 
     @JvmStatic
     @TypeConverter
     fun toTimestamp(dateTime: ZonedDateTime?): String? {
-        return try {
-            dateTime?.toString()
-        } catch (e: Exception) {
-            null
-        }
+        return dateTime?.format(formatter)
     }
 }
