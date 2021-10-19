@@ -1,7 +1,7 @@
 package hr.dtakac.factorynews.repository
 
-import hr.dtakac.factorynews.model.repository.ArticleModel
+import hr.dtakac.factorynews.model.repository.ArticleRepositoryModel
 
 interface ArticleRepository {
-    suspend fun getArticles(): ArticleModel
+    suspend fun getArticles(): ArticleRepositoryModel
 }

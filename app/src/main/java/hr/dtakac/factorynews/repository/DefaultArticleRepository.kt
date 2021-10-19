@@ -6,8 +6,8 @@ import hr.dtakac.factorynews.api.ApiService
 import hr.dtakac.factorynews.dispatcher.DispatcherProvider
 import hr.dtakac.factorynews.database.dao.ArticleDao
 import hr.dtakac.factorynews.database.dao.UpdateTimestampDao
-import hr.dtakac.factorynews.model.database.Article
-import hr.dtakac.factorynews.model.repository.ArticleModel
+import hr.dtakac.factorynews.model.database.ArticleDatabaseModel
+import hr.dtakac.factorynews.model.repository.ArticleRepositoryModel
 import hr.dtakac.factorynews.model.repository.Error
 import hr.dtakac.factorynews.model.repository.Success
 import kotlinx.coroutines.withContext
@@ -21,7 +21,7 @@ class DefaultArticleRepository @Inject constructor(
     private val updateTimestampDao: UpdateTimestampDao,
     private val dispatcherProvider: DispatcherProvider
 ) : ArticleRepository {
-    override suspend fun getArticles(): ArticleModel {
+    override suspend fun getArticles(): ArticleRepositoryModel {
         if (isCachedDataStale()) {
             try {
                 updateDatabase()
@@ -45,7 +45,7 @@ class DefaultArticleRepository @Inject constructor(
         val articleEntities = withContext(dispatcherProvider.computation) {
             response.articles
                 .map {
-                    Article(
+                    ArticleDatabaseModel(
                         author = it.author,
                         title = it.title,
                         description = it.description,

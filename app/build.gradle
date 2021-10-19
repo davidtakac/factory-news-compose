@@ -67,7 +67,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines"
 
     // Image loading
-    implementation "io.coil-kt:coil:$versions.coil"
+    implementation "io.coil-kt:coil-compose:$versions.coil"
 
     // Desugar
     coreLibraryDesugaring "com.android.tools:desugar_jdk_libs:$versions.desugar"

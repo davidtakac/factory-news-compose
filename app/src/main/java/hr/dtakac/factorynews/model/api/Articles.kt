@@ -10,5 +10,5 @@ data class Articles(
     @SerializedName("sortBy")
     val sortBy: String,
     @SerializedName("articles")
-    val articles: List<Article>
+    val articles: List<ArticleApiModel>
 )

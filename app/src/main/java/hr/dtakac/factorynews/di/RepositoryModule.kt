@@ -10,7 +10,7 @@ import hr.dtakac.factorynews.repository.DefaultArticleRepository
 
 @Module
 @InstallIn(ViewModelComponent::class)
-abstract class ArticleListViewModelModule {
+abstract class RepositoryModule {
     @Binds
     @ViewModelScoped
     abstract fun provideArticleRepository(default: DefaultArticleRepository): ArticleRepository

@@ -2,7 +2,7 @@ package hr.dtakac.factorynews.model.api
 
 import com.google.gson.annotations.SerializedName
 
-data class Article(
+data class ArticleApiModel(
     @SerializedName("author")
     val author: String,
     @SerializedName("title")

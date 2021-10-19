@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Factory news</string>
+    <string name="accessibility_article_image_description">Article image</string>
 </resources>

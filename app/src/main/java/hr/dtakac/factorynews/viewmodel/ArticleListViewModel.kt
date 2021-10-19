@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import hr.dtakac.factorynews.dispatcher.DispatcherProvider
 import hr.dtakac.factorynews.model.repository.Error
 import hr.dtakac.factorynews.model.repository.Success
-import hr.dtakac.factorynews.model.ui.ArticleCell
+import hr.dtakac.factorynews.model.ui.ArticleUiModel
 import hr.dtakac.factorynews.repository.ArticleRepository
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -19,7 +19,7 @@ class ArticleListViewModel @Inject constructor(
     private val repository: ArticleRepository,
     private val dispatcherProvider: DispatcherProvider
 ) : ViewModel() {
-    val articleCells = mutableStateListOf<ArticleCell>()
+    val articleCells = mutableStateListOf<ArticleUiModel>()
     val showError = mutableStateOf(false)
 
     init {
@@ -40,7 +40,7 @@ class ArticleListViewModel @Inject constructor(
             val cells = success
                 .articles
                 .map {
-                    ArticleCell(
+                    ArticleUiModel(
                         url = it.url,
                         title = it.title,
                         imageUrl = it.imageUrl
