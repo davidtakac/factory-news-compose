@@ -4,7 +4,6 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
 import hr.dtakac.factorynews.repository.ArticleRepository
 import hr.dtakac.factorynews.repository.DefaultArticleRepository
 
@@ -12,6 +11,5 @@ import hr.dtakac.factorynews.repository.DefaultArticleRepository
 @InstallIn(ViewModelComponent::class)
 abstract class RepositoryModule {
     @Binds
-    @ViewModelScoped
-    abstract fun provideArticleRepository(default: DefaultArticleRepository): ArticleRepository
+    abstract fun bindArticleRepository(default: DefaultArticleRepository): ArticleRepository
 }

@@ -16,11 +16,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
     @Provides
+    @Singleton
     fun provideArticleDao(database: FactoryNewsDatabase): ArticleDao {
         return database.articleDao()
     }
 
     @Provides
+    @Singleton
     fun provideUpdateTimestampDao(database: FactoryNewsDatabase): UpdateTimestampDao {
         return database.updateTimestampDao()
     }
